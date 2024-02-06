@@ -1,5 +1,6 @@
 package com.example.todo.fragments
 
+import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -53,6 +54,8 @@ class SignUpFragment : Fragment() {
 
             if (email.isNotEmpty() && pass.isNotEmpty() && verifyPass.isNotEmpty()) {
                 if (pass == verifyPass) {
+
+                    binding.progressBar.visibility = View.VISIBLE
                     auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(
                         OnCompleteListener {
                             if (it.isSuccessful) {
@@ -61,10 +64,13 @@ class SignUpFragment : Fragment() {
                             } else {
                                 Toast.makeText(context, it.exception?.message, Toast.LENGTH_SHORT).show()
                             }
+                            binding.progressBar.visibility = View.GONE
                         })
                 } else {
-
+                    Toast.makeText(context, "Passwords do not match. Please try again", Toast.LENGTH_SHORT).show()
                 }
+            } else {
+                Toast.makeText(context, "Please fill out all input fields.", Toast.LENGTH_SHORT).show()
             }
         }
     }

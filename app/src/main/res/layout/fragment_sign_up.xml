@@ -34,14 +34,12 @@
         android:id="@+id/imageView2"
         android:layout_width="60dp"
         android:layout_height="130dp"
-        android:layout_marginStart="368dp"
         android:rotation="180"
         android:scaleType="fitXY"
         android:src="@drawable/ellipse_one"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.525" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
         android:id="@+id/imageView3"
@@ -193,5 +191,16 @@
         app:layout_constraintTop_toBottomOf="@id/card3"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewSignIn"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
